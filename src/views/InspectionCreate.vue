@@ -127,10 +127,19 @@
           this.show = true;
         }
 
+        const params = {
+          page: this.page,
+          search: this.$store.state.query,
+        };
+
+        const url = "stores/";
+
         await http
-          .get(`stores/?page=${this.page}&search=${this.$store.state.query}`, {
-            headers: authHeader(),
-          })
+          .getUri({ url, params }, { headers: authHeader() })
+
+          // .get(`stores/?page=${this.page}&search=${this.$store.state.query}`, {
+          //   headers: authHeader(),
+          // })
           .then((response) => {
             this.$store.commit("branchstore/SET_BRANCHSTORES", response.data);
           });
