@@ -127,15 +127,19 @@
           this.show = true;
         }
 
-        const params = {
-          page: this.page,
-          search: this.$store.state.query,
-        };
-
         const url = "stores/";
 
         await http
-          .get({ url, params }, { headers: authHeader() })
+          .get(
+            url,
+            {
+              params: {
+                page: this.page,
+                search: this.$store.state.query,
+              },
+            },
+            { headers: authHeader() }
+          )
 
           // .get(`stores/?page=${this.page}&search=${this.$store.state.query}`, {
           //   headers: authHeader(),
