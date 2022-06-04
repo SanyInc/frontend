@@ -135,7 +135,7 @@
         const url = "stores/";
 
         await http
-          .getUri({ url, params }, { headers: authHeader() })
+          .get({ url, params }, { headers: authHeader() })
 
           // .get(`stores/?page=${this.page}&search=${this.$store.state.query}`, {
           //   headers: authHeader(),
