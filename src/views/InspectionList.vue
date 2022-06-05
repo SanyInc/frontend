@@ -95,11 +95,12 @@
 
       async getLoads() {
         this.loading = true;
+        const url = "inspections/";
+
         if (
           this.$store.state.query === "" ||
           this.$store.state.query === null
         ) {
-          const url = "inspections/";
           // const params = { page: this.$store.state.page };
           // const headers =
 
@@ -119,8 +120,6 @@
               this.$store.commit("inspection/SET_INSPECTIONS", response.data);
             });
         } else {
-          await http;
-
           await http
             .get(url, {
               params: {
