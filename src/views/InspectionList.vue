@@ -100,17 +100,16 @@
           this.$store.state.query === null
         ) {
           const url = "inspections/";
+          // const params = { page: this.$store.state.page };
+          // const headers =
 
           await http
-            .get(
-              url,
-              {
-                params: {
-                  page: this.$store.state.page,
-                },
+            .get(url, {
+              params: {
+                page: this.$store.state.page,
               },
-              { headers: authHeader() }
-            )
+              headers: authHeader(),
+            })
 
             // .get(`inspections/?page=${this.$store.state.page}`, {
             //   headers: authHeader(),
