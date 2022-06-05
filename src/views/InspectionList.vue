@@ -119,13 +119,23 @@
               this.$store.commit("inspection/SET_INSPECTIONS", response.data);
             });
         } else {
+          await http;
+
           await http
-            .get(
-              `inspections/?page=${this.$store.state.page}&search=${this.$store.state.query}`,
-              {
-                headers: authHeader(),
-              }
-            )
+            .get(url, {
+              params: {
+                page: this.$store.state.page,
+                search: this.$store.state.query,
+              },
+              headers: authHeader(),
+            })
+
+            // .get(
+            //   `inspections/?page=${this.$store.state.page}&search=${this.$store.state.query}`,
+            //   {
+            //     headers: authHeader(),
+            //   }
+            // )
             .then((response) => {
               this.$store.commit("inspection/SET_INSPECTIONS", response.data);
             });

@@ -130,16 +130,13 @@
         const url = "stores/";
 
         await http
-          .get(
-            url,
-            {
-              params: {
-                page: this.page,
-                search: this.$store.state.query,
-              },
+          .get(url, {
+            params: {
+              page: this.page,
+              search: this.$store.state.query,
             },
-            { headers: authHeader() }
-          )
+            headers: authHeader(),
+          })
 
           // .get(`stores/?page=${this.page}&search=${this.$store.state.query}`, {
           //   headers: authHeader(),
