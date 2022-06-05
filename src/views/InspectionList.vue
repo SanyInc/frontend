@@ -99,10 +99,23 @@
           this.$store.state.query === "" ||
           this.$store.state.query === null
         ) {
+          const url = "inspections/";
+
           await http
-            .get(`inspections/?page=${this.$store.state.page}`, {
-              headers: authHeader(),
-            })
+            .get(
+              url,
+              {
+                params: {
+                  page: this.$store.state.page,
+                },
+              },
+              { headers: authHeader() }
+            )
+
+            // .get(`inspections/?page=${this.$store.state.page}`, {
+            //   headers: authHeader(),
+            // })
+
             .then((response) => {
               this.$store.commit("inspection/SET_INSPECTIONS", response.data);
             });
