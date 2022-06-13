@@ -14,7 +14,7 @@
 
                   <v-list-item-subtitle
                     class="text--primary"
-                    v-text="item.business"
+                    v-text="item.category"
                   ></v-list-item-subtitle>
 
                   <v-list-item-subtitle
@@ -30,7 +30,7 @@
                   ></v-list-item-subtitle>
                   <v-list-item-title
                     ><span class="grey--text">ΑΦΜ: </span
-                    >155130279</v-list-item-title
+                    ><strong>{{ item.vat }}</strong></v-list-item-title
                   >
                 </v-list-item-action>
               </v-list-item>
@@ -69,13 +69,13 @@
 
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="blue" text @click="dialog = false"> Disagree </v-btn>
+          <v-btn color="blue" text @click="dialog = false"> Διαφωνω </v-btn>
 
           <v-btn
             color="error"
             @click="(dialog = false), startInspection(selectedBranchstore)"
           >
-            Agree
+            Συμφωνω
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -137,10 +137,6 @@
             },
             headers: authHeader(),
           })
-
-          // .get(`stores/?page=${this.page}&search=${this.$store.state.query}`, {
-          //   headers: authHeader(),
-          // })
           .then((response) => {
             this.$store.commit("branchstore/SET_BRANCHSTORES", response.data);
           });

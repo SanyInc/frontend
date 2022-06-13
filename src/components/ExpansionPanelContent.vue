@@ -53,19 +53,24 @@
     <v-divider></v-divider>
     <v-dialog v-model="dialog1" max-width="500">
       <v-card>
-        <v-card-title class="headline"> Περιγραφή </v-card-title>
+        <v-row no-gutters justify="center">
+          <v-card-title class="headline"> Περιγραφή</v-card-title>
+        </v-row>
         <v-card-text>
           {{ selectedQuestion.description }}
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="error" text @click="dialog1 = false"> Close </v-btn>
+          <v-btn color="error" text @click="dialog1 = false"> Κλεισιμο </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
     <v-dialog v-model="dialog2" max-width="500">
       <v-card>
-        <v-card-title class="headline"> Σχόλια </v-card-title>
+        <v-row no-gutters justify="center">
+          <v-card-title class="headline"> Σχόλια</v-card-title>
+        </v-row>
+
         <v-card-text>
           <v-textarea
             outlined
@@ -81,7 +86,7 @@
             text
             @click="(dialog2 = false), sendCommentToCart(comment)"
           >
-            Καταχώρηση
+            Καταχωρηση
           </v-btn>
         </v-card-actions>
       </v-card>

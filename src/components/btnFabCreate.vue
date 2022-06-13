@@ -3,13 +3,15 @@
     <v-btn
       color="red"
       fab
+      x-large
       dark
       fixed
       right
+      elevation="8"
       bottom
       :to="{ name: 'InspectionCreate' }"
     >
-      <v-icon>mdi-plus</v-icon>
+      <v-icon large>mdi-plus</v-icon>
     </v-btn>
   </v-fab-transition>
 </template>

@@ -8,17 +8,17 @@
     <v-main>
       <slot />
     </v-main>
-    <TheFooter />
+    <!-- <TheFooter /> -->
   </div>
 </template>
 
 <script>
-  import TheFooter from "../components/base/TheFooter.vue";
+  // import TheFooter from "../components/base/TheFooter.vue";
   import TheSidebar from "../components/base/TheSidebar.vue";
   import TheNavbar from "../components/base/TheNavbar.vue";
 
   export default {
-    components: { TheNavbar, TheFooter, TheSidebar },
+    components: { TheNavbar, TheSidebar },
     data() {
       return {
         isDrawerOpen: null,

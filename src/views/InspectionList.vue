@@ -96,14 +96,13 @@
       async getLoads() {
         this.loading = true;
         const url = "inspections/";
+        // const params = { page: this.$store.state.page };
+        // const headers = headers: authHeader()
 
         if (
           this.$store.state.query === "" ||
           this.$store.state.query === null
         ) {
-          // const params = { page: this.$store.state.page };
-          // const headers =
-
           await http
             .get(url, {
               params: {
@@ -111,11 +110,6 @@
               },
               headers: authHeader(),
             })
-
-            // .get(`inspections/?page=${this.$store.state.page}`, {
-            //   headers: authHeader(),
-            // })
-
             .then((response) => {
               this.$store.commit("inspection/SET_INSPECTIONS", response.data);
             });
@@ -128,13 +122,6 @@
               },
               headers: authHeader(),
             })
-
-            // .get(
-            //   `inspections/?page=${this.$store.state.page}&search=${this.$store.state.query}`,
-            //   {
-            //     headers: authHeader(),
-            //   }
-            // )
             .then((response) => {
               this.$store.commit("inspection/SET_INSPECTIONS", response.data);
             });

@@ -18,8 +18,11 @@
         </v-list-item-avatar>
 
         <v-list-item-content>
-          <v-list-item-title>Panagiotis Petropoulos</v-list-item-title>
-          <v-list-item-subtitle>ppetropoulos@patt.gov.gr</v-list-item-subtitle>
+          <v-list-item-title
+            >{{ token.user.first_name }}
+            {{ token.user.last_name }}</v-list-item-title
+          >
+          <v-list-item-subtitle>{{ token.user.email }}</v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
       <v-divider />
@@ -43,18 +46,25 @@
 </template>
 
 <script>
+  import { mapState } from "vuex";
+
   export default {
     data() {
       return {
         isDrawerOpen: null,
         menus: [
-          { title: "Profile", icon: "mdi-account", to: "/profile" },
+          { title: "Profile", icon: "mdi-account", to: "/" },
           // { title: "Change Password", icon: "mdi-key", to: "/" },
           // { title: "Settings", icon: "mdi-cog", to: "/" },
           // { title: "Logout", icon: "mdi-logout", to: "/login" },
         ],
       };
     },
+    computed: {
+      ...mapState("branchstore", ["branchstores"]),
+      ...mapState("auth", ["token"]),
+    },
+
     methods: {
       logout() {
         localStorage.clear();
